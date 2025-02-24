@@ -9,8 +9,8 @@ use App\Application\UseCase\MarkDoctorErrorUseCase;
 use App\Application\UseCase\ProcessSlotsUseCase;
 use App\Application\UseCase\SyncDoctorUseCase;
 use App\Application\UseCase\SyncSlotUseCase;
-use App\Application\Provider\DoctorProvider;
-use App\Application\Provider\SlotProvider;
+use App\Application\Provider\DoctorProviderInterface;
+use App\Application\Provider\SlotProviderInterface;
 use Carbon\Carbon;
 use DateTime;
 use Psr\Log\LoggerInterface;
@@ -25,8 +25,8 @@ class DoctorSlotSynchronizationService
     private SyncSlotUseCase $syncSlotUseCase;
     private MarkDoctorErrorUseCase $markDoctorErrorUseCase;
     private ProcessSlotsUseCase $processSlotsUseCase;
-    private DoctorProvider $doctorProvider;
-    private SlotProvider $slotProvider;
+    private DoctorProviderInterface $doctorProvider;
+    private SlotProviderInterface $slotProvider;
     private LoggerInterface $logger;
 
     /**
@@ -35,18 +35,18 @@ class DoctorSlotSynchronizationService
      * @param SyncDoctorUseCase $syncDoctorUseCase Use case for synchronizing doctors.
      * @param SyncSlotUseCase $syncSlotUseCase Use case for synchronizing slots.
      * @param MarkDoctorErrorUseCase $markDoctorErrorUseCase Use case for marking a doctor with an error.
-     * @param DoctorProvider $doctorProvider External provider for doctor data.
-     * @param SlotProvider $slotProvider External provider for slot data.
+     * @param DoctorProviderInterface $doctorProvider External provider for doctor data.
+     * @param SlotProviderInterface $slotProvider External provider for slot data.
      * @param LoggerInterface $logger Logger instance for logging information.
      */
     public function __construct(
-        SyncDoctorUseCase      $syncDoctorUseCase,
-        SyncSlotUseCase        $syncSlotUseCase,
-        MarkDoctorErrorUseCase $markDoctorErrorUseCase,
-        ProcessSlotsUseCase    $processSlotsUseCase,
-        DoctorProvider         $doctorProvider,
-        SlotProvider           $slotProvider,
-        LoggerInterface        $logger
+        SyncDoctorUseCase       $syncDoctorUseCase,
+        SyncSlotUseCase         $syncSlotUseCase,
+        MarkDoctorErrorUseCase  $markDoctorErrorUseCase,
+        ProcessSlotsUseCase     $processSlotsUseCase,
+        DoctorProviderInterface $doctorProvider,
+        SlotProviderInterface   $slotProvider,
+        LoggerInterface         $logger
     )
     {
         $this->syncDoctorUseCase = $syncDoctorUseCase;

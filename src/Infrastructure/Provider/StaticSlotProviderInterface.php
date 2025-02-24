@@ -3,12 +3,12 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Provider;
 
-use App\Application\Provider\SlotProvider;
+use App\Application\Provider\SlotProviderInterface;
 
 /**
  * Implementation of SlotProvider that fetches data static.
  */
-class StaticSlotProvider implements SlotProvider
+class StaticSlotProviderInterface implements SlotProviderInterface
 {
 
     /**

@@ -3,8 +3,8 @@
 
 use App\Application\DTO\DoctorDTO;
 use App\Application\DTO\SlotDTO;
-use App\Application\Provider\DoctorProvider;
-use App\Application\Provider\SlotProvider;
+use App\Application\Provider\DoctorProviderInterface;
+use App\Application\Provider\SlotProviderInterface;
 use App\Application\Service\DoctorSlotSynchronizationService;
 use App\Application\Service\SlotProcessor;
 use App\Application\UseCase\MarkDoctorErrorUseCase;
@@ -35,8 +35,8 @@ beforeEach(function () {
         ->with(Slot::class)
         ->willReturn($this->slotRepository);
 
-    $this->doctorProvider = $this->createMock(DoctorProvider::class);
-    $this->slotProvider = $this->createMock(SlotProvider::class);
+    $this->doctorProvider = $this->createMock(DoctorProviderInterface::class);
+    $this->slotProvider = $this->createMock(SlotProviderInterface::class);
 
     //We create the use cases with our repository mocks.
 

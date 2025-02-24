@@ -11,8 +11,8 @@ use App\Infrastructure\Persistence\Doctrine\DoctrineSlotRepository;
 use App\Application\Service\DoctorSlotSynchronizationService;
 use App\Application\UseCase\SyncDoctorUseCase;
 use App\Application\UseCase\SyncSlotUseCase;
-use App\Infrastructure\Provider\StaticDoctorProvider;
-use App\Infrastructure\Provider\StaticSlotProvider;
+use App\Infrastructure\Provider\StaticDoctorProviderInterface;
+use App\Infrastructure\Provider\StaticSlotProviderInterface;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\DBAL\DriverManager;
@@ -51,8 +51,8 @@ $entityManager = EntityManager::create(
 
 $doctorRepository = new DoctrineDoctorRepository($entityManager);
 $slotRepository = new DoctrineSlotRepository($entityManager);
-$doctorProvider = new StaticDoctorProvider();
-$slotProvider = new StaticSlotProvider();
+$doctorProvider = new StaticDoctorProviderInterface();
+$slotProvider = new StaticSlotProviderInterface();
 
 $syncDoctorUseCase = new SyncDoctorUseCase($doctorRepository);
 $syncSlotUseCase = new SyncSlotUseCase($slotRepository);

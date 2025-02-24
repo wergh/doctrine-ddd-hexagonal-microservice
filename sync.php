@@ -8,11 +8,11 @@ use App\Application\UseCase\ProcessSlotsUseCase;
 use App\Infrastructure\Console\SyncDoctorsCommand;
 use App\Infrastructure\Persistence\Doctrine\DoctrineDoctorRepository;
 use App\Infrastructure\Persistence\Doctrine\DoctrineSlotRepository;
-use App\Infrastructure\Provider\ApiDoctorProvider;
+use App\Infrastructure\Provider\ApiDoctorProviderInterface;
 use App\Application\Service\DoctorSlotSynchronizationService;
 use App\Application\UseCase\SyncDoctorUseCase;
 use App\Application\UseCase\SyncSlotUseCase;
-use App\Infrastructure\Provider\ApiSlotProvider;
+use App\Infrastructure\Provider\ApiSlotProviderInterface;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\DBAL\DriverManager;
@@ -52,8 +52,8 @@ $entityManager = EntityManager::create(
 
 $doctorRepository = new DoctrineDoctorRepository($entityManager);
 $slotRepository = new DoctrineSlotRepository($entityManager);
-$doctorProvider = new ApiDoctorProvider();
-$slotProvider = new ApiSlotProvider();
+$doctorProvider = new ApiDoctorProviderInterface();
+$slotProvider = new ApiSlotProviderInterface();
 
 $syncDoctorUseCase = new SyncDoctorUseCase($doctorRepository);
 $syncSlotUseCase = new SyncSlotUseCase($slotRepository);

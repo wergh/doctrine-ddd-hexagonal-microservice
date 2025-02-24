@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Provider;
 
-use App\Application\Provider\DoctorProvider;
+use App\Application\Provider\DoctorProviderInterface;
 use RuntimeException;
 
 /**
  * Implementation of DoctorProvider that fetches data from an external API.
  */
-class ApiDoctorProvider extends ApiProvider implements DoctorProvider
+class ApiDoctorProviderInterface extends ApiProvider implements DoctorProviderInterface
 {
 
     /**

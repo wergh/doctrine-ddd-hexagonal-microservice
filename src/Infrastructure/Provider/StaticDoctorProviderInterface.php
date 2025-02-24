@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Provider;
 
-use App\Application\Provider\DoctorProvider;
+use App\Application\Provider\DoctorProviderInterface;
 use RuntimeException;
 
 /**
  * Implementation of DoctorProvider that fetches data from a local static JSON file.
  */
-class StaticDoctorProvider implements DoctorProvider
+class StaticDoctorProviderInterface implements DoctorProviderInterface
 {
     /**
      * Fetches the list of doctors from a local JSON file.

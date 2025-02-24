@@ -3,13 +3,13 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Provider;
 
-use App\Application\Provider\SlotProvider;
+use App\Application\Provider\SlotProviderInterface;
 use RuntimeException;
 
 /**
  * Implementation of SlotProvider that fetches data from an external API.
  */
-class ApiSlotProvider extends ApiProvider implements SlotProvider
+class ApiSlotProviderInterface extends ApiProvider implements SlotProviderInterface
 {
 
     /**

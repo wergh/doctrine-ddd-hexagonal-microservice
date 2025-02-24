@@ -7,7 +7,7 @@ namespace App\Application\Provider;
 /**
  * Interface for retrieving doctor and slot data from external sources.
  */
-interface DoctorProvider
+interface DoctorProviderInterface
 {
     /**
      * Retrieves a list of doctors.
